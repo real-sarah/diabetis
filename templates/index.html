@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <h2 class="text-center mb-4">Diabetes Prediction Form</h2>
+        <div class="card p-4 shadow">
+            <form action="/" method="POST">
+
+                <!-- Integer / Float inputs -->
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="age" class="form-label">Age (18–90)</label>
+                        <input type="number" class="form-control" name="age" id="age" min="18" max="90" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="alcohol_consumption_per_week" class="form-label">Alcohol (drinks/week, 0–30)</label>
+                        <input type="number" step="0.1" class="form-control" name="alcohol_consumption_per_week" id="alcohol_consumption_per_week" min="0" max="30" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="physical_activity_minutes_per_week" class="form-label">Physical Activity (min/week, 0–600)</label>
+                        <input type="number" class="form-control" name="physical_activity_minutes_per_week" id="physical_activity_minutes_per_week" min="0" max="600" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="diet_score" class="form-label">Diet Score (0–10)</label>
+                        <input type="number" class="form-control" name="diet_score" id="diet_score" min="0" max="10" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="sleep_hours_per_day" class="form-label">Sleep Hours (3–12)</label>
+                        <input type="number" step="0.1" class="form-control" name="sleep_hours_per_day" id="sleep_hours_per_day" min="3" max="12" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="screen_time_hours_per_day" class="form-label">Screen Time Hours (0–12)</label>
+                        <input type="number" step="0.1" class="form-control" name="screen_time_hours_per_day" id="screen_time_hours_per_day" min="0" max="12" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="bmi" class="form-label">BMI (15–45)</label>
+                        <input type="number" step="0.1" class="form-control" name="bmi" id="bmi" min="15" max="45" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="waist_to_hip_ratio" class="form-label">Waist-to-Hip Ratio (0.7–1.2)</label>
+                        <input type="number" step="0.01" class="form-control" name="waist_to_hip_ratio" id="waist_to_hip_ratio" min="0.7" max="1.2" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="systolic_bp" class="form-label">Systolic BP (90–180)</label>
+                        <input type="number" class="form-control" name="systolic_bp" id="systolic_bp" min="90" max="180" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="diastolic_bp" class="form-label">Diastolic BP (60–120)</label>
+                        <input type="number" class="form-control" name="diastolic_bp" id="diastolic_bp" min="60" max="120" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="heart_rate" class="form-label">Heart Rate (50–120)</label>
+                        <input type="number" class="form-control" name="heart_rate" id="heart_rate" min="50" max="120" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="cholesterol_total" class="form-label">Total Cholesterol (120–300)</label>
+                        <input type="number" step="0.1" class="form-control" name="cholesterol_total" id="cholesterol_total" min="120" max="300" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="hdl_cholesterol" class="form-label">HDL Cholesterol (20–100)</label>
+                        <input type="number" step="0.1" class="form-control" name="hdl_cholesterol" id="hdl_cholesterol" min="20" max="100" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="ldl_cholesterol" class="form-label">LDL Cholesterol (50–200)</label>
+                        <input type="number" step="0.1" class="form-control" name="ldl_cholesterol" id="ldl_cholesterol" min="50" max="200" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="triglycerides" class="form-label">Triglycerides (50–500)</label>
+                        <input type="number" step="0.1" class="form-control" name="triglycerides" id="triglycerides" min="50" max="500" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="glucose_fasting" class="form-label">Fasting Glucose (70–250)</label>
+                        <input type="number" step="0.1" class="form-control" name="glucose_fasting" id="glucose_fasting" min="70" max="250" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="glucose_postprandial" class="form-label">Postprandial Glucose (90–350)</label>
+                        <input type="number" step="0.1" class="form-control" name="glucose_postprandial" id="glucose_postprandial" min="90" max="350" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="insulin_level" class="form-label">Insulin Level (2–50)</label>
+                        <input type="number" step="0.1" class="form-control" name="insulin_level" id="insulin_level" min="2" max="50" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="hba1c" class="form-label">HbA1c (%) (4–14)</label>
+                        <input type="number" step="0.1" class="form-control" name="hba1c" id="hba1c" min="4" max="14" required>
+                    </div>
+                </div>
+
+                <!-- Categorical / select inputs -->
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" name="gender" id="gender" required>
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="ethnicity" class="form-label">Ethnicity</label>
+                        <select class="form-select" name="ethnicity" id="ethnicity" required>
+                            <option value="">Select</option>
+                            <option value="White">White</option>
+                            <option value="Hispanic">Hispanic</option>
+                            <option value="Black">Black</option>
+                            <option value="Asian">Asian</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="smoking_status" class="form-label">Smoking Status</label>
+                        <select class="form-select" name="smoking_status" id="smoking_status" required>
+                            <option value="">Select</option>
+                            <option value="Never">Never</option>
+                            <option value="Former">Former</option>
+                            <option value="Current">Current</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Yes/No inputs -->
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="family_history_diabetes" class="form-label">Family History of Diabetes</label>
+                        <select class="form-select" name="family_history_diabetes" id="family_history_diabetes" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="hypertension_history" class="form-label">Hypertension History</label>
+                        <select class="form-select" name="hypertension_history" id="hypertension_history" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="cardiovascular_history" class="form-label">Cardiovascular History</label>
+                        <select class="form-select" name="cardiovascular_history" id="cardiovascular_history" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Predict & Download PDF</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
