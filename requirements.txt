@@ -1,7 +1,7 @@
 Flask==3.0.3
 pandas
 numpy
-scikit-learn==1.5.1
-imbalanced-learn==0.12.3
-joblib==1.4.2
-fpdf==1.7.2
+scikit-learn==1.6.1
+imbalanced-learn
+joblib
+fpdf
