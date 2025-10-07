@@ -1,0 +1,6 @@
+{
+    "carlitos": {
+        "password": "scrypt:32768:8:1$9MKoCl36APQ151jY$77a8a00a7fc3242267eb0eb24a2907b57769d167a40f666de56ee8187db0a5ed13cc3b27c79fd49e547b92a57654c47fff24544c7b57faac9e93d384d91b91f6",
+        "name_on_report": "Carlos Sainz"
+    }
+}
