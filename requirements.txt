@@ -6,3 +6,4 @@ imbalanced-learn
 joblib
 fpdf
 gunicorn
+huggingface_hub
