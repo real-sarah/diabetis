@@ -9,64 +9,7 @@ import os
 from dotenv import load_dotenv
 import mysql.connector
 
-load_dotenv()
-from werkzeug.security import generate_password_hash, check_password_hash
-
 app = Flask(__name__)
-
-import mysql.connector
-
-def create_patients_table():
-    db = mysql.connector.connect(
-        host='your_mysql_host',
-        user='your_user',
-        password='your_password',
-        database='your_database'
-    )
-    cursor = db.cursor()
-
-    create_table_query = """
-    CREATE TABLE IF NOT EXISTS patients (
-        patient_id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100),
-        username VARCHAR(50) UNIQUE,
-        password VARCHAR(255),
-        age INT,
-        gender VARCHAR(10),
-        ethnicity VARCHAR(20),
-        smoking_status VARCHAR(10),
-        alcohol_consumption_per_week FLOAT,
-        physical_activity_minutes_per_week INT,
-        diet_score INT,
-        sleep_hours_per_day FLOAT,
-        screen_time_hours_per_day FLOAT,
-        family_history_diabetes TINYINT(1),
-        hypertension_history TINYINT(1),
-        cardiovascular_history TINYINT(1),
-        bmi FLOAT,
-        waist_to_hip_ratio FLOAT,
-        systolic_bp INT,
-        diastolic_bp INT,
-        heart_rate INT,
-        cholesterol_total FLOAT,
-        hdl_cholesterol FLOAT,
-        ldl_cholesterol FLOAT,
-        triglycerides FLOAT,
-        glucose_fasting FLOAT,
-        glucose_postprandial FLOAT,
-        insulin_level FLOAT,
-        hba1c FLOAT,
-        diabetes_risk_score INT,
-        diabetes_stage VARCHAR(20),
-        diagnosed_diabetes TINYINT(1)
-    );
-    """
-
-    cursor.execute(create_table_query)
-    db.commit()
-    cursor.close()
-    db.close()
-
 
 
 REPO_ID = "realsarah87/randomforestdiabetes"
@@ -80,54 +23,6 @@ last_user_data = {}
 
 
 @app.route('/', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        db = create_patients_table()
-        cursor = db.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM patients WHERE username=%s", (username,))
-        user = cursor.fetchone()
-        cursor.close()
-        db.close()
-
-        if user and check_password_hash(user['password'], password):
-            return f"Welcome {user['name']}! Login successful."
-        else:
-            return "Invalid username or password!"
-
-        return redirect(url_for('success'))
-
-    return render_template('login.html')
-
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if request.method == 'POST':
-        name = request.form['name']
-        username = request.form['username']
-        password = generate_password_hash(request.form['password'])
-
-        db = create_patients_table()
-        cursor = db.cursor()
-        try:
-            cursor.execute("INSERT INTO patients (name, username, password) VALUES (%s, %s, %s)",
-                           (name, username, password))
-            db.commit()
-            msg = "Signup successful!"
-        except mysql.connector.IntegrityError:
-            msg = "Username already exists!"
-        cursor.close()
-        db.close()
-        return msg
-
-        return redirect(url_for('success'))
-
-    return render_template('signup.html')
-
-
-
-@app.route('/success', methods=['GET', 'POST'])
 def home():
     global last_user_data
     if request.method == 'POST':
@@ -150,7 +45,7 @@ def home():
 
         df = df[pipeline.feature_names_in_]
 
-        # Prediction
+
         pred_encoded = pipeline.predict(df)[0]
         pred_label = y_encoder.inverse_transform([pred_encoded])[0]
 
