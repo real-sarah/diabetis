@@ -15,7 +15,7 @@ REPO_ID = "realsarah87/randomforestdiabetes"
 pipeline_path = hf_hub_download(repo_id=REPO_ID, filename="pipeline_model.pkl")
 
 
-pipeline = joblib.load(pipeline_path)
+pipeline = joblib.load("pipeline_model2.pkl")
 y_encoder = joblib.load("label_encoder.pkl")
 
 last_user_data = {}
