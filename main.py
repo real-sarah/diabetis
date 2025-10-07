@@ -5,9 +5,8 @@ from fpdf import FPDF
 import io
 import os
 from huggingface_hub import hf_hub_download
-import os
-from dotenv import load_dotenv
-import mysql.connector
+
+
 
 app = Flask(__name__)
 
